@@ -36,6 +36,10 @@ var StreamingCache = function StreamingCache(options) {
 StreamingCache.prototype.setData = function (key, data) {
     utils.ensureDefined(key, 'Key');
 
+    if(!!data && typeof data == 'object'){
+        data = JSON.stringify(data);
+    }
+
     this.cache.set(key, {
         data: data,
         metadata: this.getMetadata(key) || {},
