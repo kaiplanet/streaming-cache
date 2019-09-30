@@ -16,7 +16,7 @@ var DEFAULT_LENGTH = function (value) {
 };
 
 var StreamingCache = function StreamingCache(options) {
-    this.cache = LRU(assign({ length: DEFAULT_LENGTH }, options));
+    this.cache = new LRU(assign({ length: DEFAULT_LENGTH }, options));
     this.emitters = {};
 
     Object.defineProperties(this, {
